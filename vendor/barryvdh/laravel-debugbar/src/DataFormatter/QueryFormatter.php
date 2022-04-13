@@ -6,7 +6,6 @@ use DebugBar\DataFormatter\DataFormatter;
 
 class QueryFormatter extends DataFormatter
 {
-
     /**
      * Removes extra spaces at the beginning and end of the SQL query and its lines.
      *
@@ -32,6 +31,15 @@ class QueryFormatter extends DataFormatter
         foreach ($bindings as &$binding) {
             if (is_string($binding) && !mb_check_encoding($binding, 'UTF-8')) {
                 $binding = '[BINARY DATA]';
+            }
+
+            if (is_array($binding)) {
+                $binding = $this->checkBindings($binding);
+                $binding = '[' . implode(',', $binding) . ']';
+            }
+
+            if (is_object($binding)) {
+                $binding =  json_encode($binding);
             }
         }
 

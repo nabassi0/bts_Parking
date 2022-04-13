@@ -107,6 +107,7 @@ class connexion extends Controller
                 'nom' => $_GET['nom'],
                 'prenom' => $_GET['prenom'],
                 'mail' => $_GET['mail'],
+                'vehicule' => $_GET['vehicule'],
                 'motDePasseUtilisateur' => Hash::make($_GET['password']),
                 'isAdministrateur' => false,
             ]);

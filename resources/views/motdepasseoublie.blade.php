@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Log;
+
 if (!isset($error)) {
     $error = null;
 }

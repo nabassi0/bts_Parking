@@ -1,4 +1,7 @@
 <?php
+
+use Illuminate\Support\Facades\Log;
+
 if (!isset($error)) {
     $error = null;
 }
@@ -41,12 +44,19 @@ Log::debug($error);
             <input type="email" class="form-control" name="mail" placeholder="Adresse E-Mail" required>
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" id="mdp" name="password" placeholder="Mot de passe" required>
+            <input type="password" class="form-control" id="mdp" name="password" placeholder="Mot de passe"  pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
         </div>
         <div class="form-group">
             <input type="password" class="form-control" name="newpassword" placeholder="Confirmation du mot de passe" required>
         </div>
-
+       <!-- <select name="vehicule" id="vehicule">
+    <option value="">Choisir votre type de véhicule</option>
+    <option value="4x4">4x4</option>
+    <option value="Moto">Moto</option>
+    <option value="Voiture">Voiture</option>
+    <option value="Van">Van</option>
+</select>
+<br></br> -->
         <div class="form-group">
             <button type="submit" class="btn btn-outline-success">Inscription</button>
         </div>

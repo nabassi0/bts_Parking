@@ -1,4 +1,8 @@
-<?php $error = 0 ?>
+<?php
+
+use Illuminate\Support\Facades\Log;
+
+ $error = 0 ?>
 @if (isset($_POST['error']))
     <?php $error = $_POST['error'] ?>
 @endif
@@ -25,11 +29,11 @@
         <h2 class="text-center">Modification du mot de passe</h2>
         <div class="form-group">
 
-            <input type="password" name="old" class="form-control" placeholder="Mot de passe actuel" required>
+            <input type="password" name="old" class="form-control" placeholder="Mot de passe actuel"  required>
         </div>
         <div class="form-group">
 
-            <input type="password" name="new" class="form-control" placeholder="Nouveau mot de passe" required>
+            <input type="password" name="new" class="form-control" placeholder="Nouveau mot de passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
         </div>
         <div class="form-group">
             <button type="submit" class="btn-success ">Changer le mot de passe</button>

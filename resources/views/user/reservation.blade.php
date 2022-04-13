@@ -1,9 +1,13 @@
 <?php
+
+use Illuminate\Support\Facades\Log;
+
 $reserv = $dbreserv[1];
 $today = date("Y-m-d");
 Log::debug($today);
 $annule = 0;
 $valide = 0;
+
 ?>
 @extends('head.user')
 @section('content')
@@ -89,6 +93,12 @@ $valide = 0;
         <div class="container mb-3 mt-3">
             <p class="text-center">
                 <button type="submit" class="btn-success">Faire une réservation</button>
+                <!--@if(0 == 0) 
+                    @csrf
+                <p>Il n'y a plus de places.</p>
+                @else
+                @endif -->
+                Places restantes nbplaces
             </p>
         </div>
     </form>

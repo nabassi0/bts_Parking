@@ -84,6 +84,13 @@ class admin extends Controller
         }
         return view('admin.listeplace', compact('listeplace', 'placeprise', 'alert'));
     }
+    
+    public function nombreplace()
+    {
+        $id = $_GET['id'];
+        $nbplaces = parking::select('idParking')->count()->get();
+        return view('user.reservation', compact('nbplaces',$nbplaces));
+    }
 
     public function ajoutplace()
     {
